@@ -66,6 +66,41 @@ class Telegram extends TelegramBase
      * @throws GuzzleException
      * @var array
      *   sample
+     *   Yii::$app->telegram->sendInvoice([
+     *       'chat_id' => $chat_id,
+     *       'title' => 'Product name', // 1-32 characters
+     *       'description' => 'Product description', // 1-255 characters
+     *       'payload' => 'Bot-defined invoice payload', // 1-128 bytes. This will not be displayed to the user, use for your internal processes.
+     *       'provider_token' => 'Payments provider token, obtained via @botfather',
+     *       'currency' => 'USD', // 'Three-letter ISO 4217 currency code, see more on currencies',
+     *       'prices' => [['label' => 'Price', 'amount' => 145]], // For example, for a price of US$ 1.45 pass amount = 145
+     *       'max_tip_amount' => 0, // Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0
+     *       'provider_data' => '', // Optional. A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
+     *       'photo_url' => '', //Optional. URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.
+     *       'photo_size' => 0, // Optional. Photo size
+     *       'photo_width' => 0, // Optional. Photo width
+     *       'photo_height' => 0, // Optional. Photo height
+     *       'need_name' => false, // Optional. Pass True, if you require the user's full name to complete the order
+     *       'need_phone_number' => false, // Optional. Pass True, if you require the user's phone number to complete the order
+     *       'need_email	Boolean	Optional	Pass True, if you require the user's email address to complete the order
+     *       'need_shipping_address	Boolean	Optional	Pass True, if you require the user's shipping address to complete the order
+     *       'send_phone_number_to_provider	Boolean	Optional	Pass True, if user's phone number should be sent to provider
+     *       'send_email_to_provider	Boolean	Optional	Pass True, if user's email address should be sent to provider
+     *       'disable_notification' => false, // Boolean	Optional	Sends the message silently. Users will receive a notification with no sound.
+     *       // 'reply_to_message_id' => 12345, // Optional. If the message is a reply, ID of the original message
+     *       // 'allow_sending_without_reply' => false, // Optional. Pass True, if the message should be sent even if the specified replied-to message is not found
+     *   ]);
+     */
+    public function sendInvoice(array $params): Response
+    {
+        $body = $this->send('/sendInvoice', $params);
+        return new Response($body);
+    }
+
+    /**
+     * @throws GuzzleException
+     * @var array
+     *   sample
      *   Yii::$app->telegram->forwardMessage([
      *       'chat_id' => $chat_id,
      *       'from_chat_id' => $from_chat_id,

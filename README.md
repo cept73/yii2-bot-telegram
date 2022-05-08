@@ -97,6 +97,7 @@ sendSticker
 sendVideo
 sendLocation
 sendChatAction
+sendInvoice
 getUserProfilePhotos
 getUpdates
 setWebhook
