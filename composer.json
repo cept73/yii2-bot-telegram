@@ -12,12 +12,19 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
+        "yidas/yii2-jquery": "*",
+        "kriss/yii2-geo": "*",
         "guzzlehttp/guzzle": "*",
         "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
             "aki\\telegram\\": ""
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
         }
     }
 }
