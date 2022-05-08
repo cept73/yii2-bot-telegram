@@ -22,6 +22,8 @@ class Result extends Type
 
    public $text;
 
+   public $invoice;
+
    private $_audio;
 
    private $_photo;
@@ -58,7 +60,7 @@ class Result extends Type
    
    public $edit_date;
 
-    public $forward_sender_name;
+   public $forward_sender_name;
 
    /**
     * 
