@@ -7,6 +7,13 @@ use aki\telegram\types\Chat;
 use aki\telegram\types\From;
 use aki\telegram\types\Message;
 
+/**
+ * @property Message $message
+ * @property Message $edited_message
+ * @property CallbackQuery $callback_query
+ * @property From $from
+ * @property Chat $chat
+ */
 class Input extends Type
 {
     public $update_id;

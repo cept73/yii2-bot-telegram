@@ -11,6 +11,9 @@ use yii\base\Component;
 
 /**
  * @author Akbar Joudi <akbar.joody@gmail.com>
+ *
+ * @property-read Input $input
+ * @property-read Client $client
  */
 class TelegramBase extends Component
 {
@@ -24,11 +27,6 @@ class TelegramBase extends Component
      * @var string
      */
     public $botToken;
-
-    /**
-     * bot username
-     */
-    public $botUsername = 'Bot';
 
     /**
      * @var string SOCKS5 proxy format string: <login>:<password>@<host>:<port>
