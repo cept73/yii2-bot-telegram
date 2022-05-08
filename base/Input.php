@@ -30,6 +30,8 @@ class Input extends Type
 
     public $my_chat_member;
 
+    public $channel_post;
+
     public function getMessage()
     {
         return $this->_message;
