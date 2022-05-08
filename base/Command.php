@@ -1,28 +1,33 @@
 <?php
+
 namespace aki\telegram\base;
 
-use Closure;
 use Yii;
 use yii\base\Component;
 
 /**
  * @author Akbar Joudi <akbar.joody@gmail.com>
  */
-class Command extends Component{
-    
-
+class Command extends Component
+{
     /**
-     *  run command bot
+     * Run command bot
+     *
      * @param String $command
      * @param Callable $fun
+     * @return mixed|void
      */
-    public static function run($command, callable $fun){
-        $telegram = Yii::$app->telegram;
-        $text = $telegram->input->message->text;
-        $args = explode(' ', $text);
+    public static function run(string $command, callable $fun)
+    {
+        /** @var TelegramBase $telegram */
+        $telegram = Yii::$app->getModule('telegram');
+        $input = $telegram->input;
+
+        $args = explode(' ', $input->message->text);
         $inputCommand = array_shift($args);
-        if($inputCommand === $command){
-            return call_user_func_array($fun, [$telegram, $args]);
+
+        if ($inputCommand === $command){
+            return $fun($telegram, $args);
         }
     }
 }
